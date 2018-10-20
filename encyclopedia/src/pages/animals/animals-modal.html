@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            {{animal ? 'Animal Details' : 'Add Animal'}}
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <span ion-text color="primary" showWhen="ios,core">Cancel</span>
+                <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form #animalsForm="ngForm" (ngSubmit)="save(animalsForm.value)">
+        <input type="hidden" name="href" [(ngModel)]="href">
+        <ion-row>
+            <ion-col>
+                <ion-list inset>
+                    <ion-item>
+                        <ion-input placeholder="Name" name="name" type="text" required [(ngModel)]="animals.name" #name></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input placeholder="Weight" name="weight" type="text" required [(ngModel)]="animals.weight" #weight></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input placeholder="Measure" name="measure" type="text" required [(ngModel)]="animals.measure" #measure></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input placeholder="Average age" name="average_age" type="text" required [(ngModel)]="animals.average_age" #average_age></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input placeholder="Classification" name="classification" type="text" required [(ngModel)]="animals.classification" #classification></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input placeholder="Classes" name="classes" type="text" required [(ngModel)]="animals.classes" #classes></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input placeholder="Family" name="family" type="text" required [(ngModel)]="animals.family" #family></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input placeholder="Genus" name="genus" type="text" required [(ngModel)]="animals.genus" #genus></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                <button ion-button color="primary" full type="submit" [disabled]="!animalsForm.form.valid">Save</button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

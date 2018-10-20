@@ -1,0 +1,7 @@
+{
+  "name": "encyclopedia",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

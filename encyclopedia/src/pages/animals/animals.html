@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Animals
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()" color="primary">
+        <ion-icon name="add-circle"></ion-icon>
+        <ion-icon name="animals"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap (press)="remove(animals)" *ngFor="let animals of animals">
+      <p>Name: {{animals.name}}</p>
+      <p>Weight: {{animals.weight}}</p>
+      <p>Measure: {{animals.measure}}</p>
+      <p>Average age: {{animals.average_age}}</p>
+      <p>Classification: {{animals.classification}}</p>
+      <p>Classes: {{animals.classes}}</p>
+      <p>Family: {{animals.family}}</p>
+      <p>Genus: {{animals.genus}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
